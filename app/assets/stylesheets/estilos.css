@@ -1,0 +1,114 @@
+.nav-link{
+   color: #FDF4F5!important;
+   margin-left: 20px;
+}
+
+.body-new-job{
+    text-align: center;
+    background-color: #2D4356;
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.titulo-nuevo{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 800;
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+
+.boton-enviar{
+    margin-top: 20px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+}
+
+.label{
+    margin-bottom: 15px;
+}
+
+.contenido{
+    margin-bottom: 40px;
+}
+
+.link-vuelta-nuevo{
+    text-decoration: none;
+    color: #DAFFFB;
+    font-family: 'Noto Sans', sans-serif, cursive;
+    font-weight: 400;
+}
+
+.work-logo{
+    color: #E76161;
+    font-size: 25px;
+
+}
+
+.wave-logo{
+    color:#F99B7D;
+    font-size: 25px;
+}
+
+.navbar-brand{
+    font-weight: 500;
+    font-family: 'Lilita One', cursive;
+}
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    text-align: center;
+    margin-left: 100px;
+  }
+  
+  .card {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    background-color: #FFA559 !important;
+    color: #454545 !important;
+  }
+
+
+.body-ofertas{
+    background-color: #FFE6C7;
+}
+
+.etiqueta {
+    font-weight: bold;
+  }
+
+  
+.data {
+    display: block;
+    margin-top: 5px;
+    padding: 12px;
+  }
+
+.data1{
+    display: block;
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 12px;
+  }
+
+
+  .oferta-mostrar{
+    text-decoration: none;
+    color: #161E54;
+    font-weight: 600;
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  .titulo-oferta{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Noto Sans', sans-serif;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }

@@ -1,0 +1,14 @@
+<body class="body-ofertas">
+  <h1 class="titulo-oferta">Ofertas Laborales</h1>
+
+  <div id="job_offers" class="card-container">
+    <% @job_offers.each do |job_offer| %>
+      <div class="card">
+        <%= render job_offer %>
+        <p>
+          <%= link_to "Mostrar esta oferta", job_offer, class: "oferta-mostrar" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</body>
