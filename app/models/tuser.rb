@@ -9,4 +9,8 @@ class Tuser < ApplicationRecord
          def admin?
           admin
         end
+
+        def self.admin_creation_params
+          %i[email password password_confirmation admin]
+        end
 end
