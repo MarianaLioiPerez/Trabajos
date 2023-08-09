@@ -1,0 +1,9 @@
+<div>
+  <h3>Mis Postulaciones</h3>
+  <% @aplications.each do |aplication| %>
+    <%= render aplication %>
+    <p>
+      <%= link_to "Ver Detalles", aplication %>
+    </p>
+  <% end %>
+</div>

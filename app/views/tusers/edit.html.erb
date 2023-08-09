@@ -1,0 +1,31 @@
+
+<%= form_with(model: @tuser, local: true) do |form| %>
+  <div>
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>
+  </div>
+
+  <div>
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div>
+    <%= form.label :educacion %>
+    <%= form.text_area :educacion %>
+  </div>
+
+  <div>
+    <%= form.label :experiencia %>
+    <%= form.text_area :experiencia %>
+  </div>
+
+  <div>
+    <%= form.label :habilidades %>
+    <%= form.text_area :habilidades %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

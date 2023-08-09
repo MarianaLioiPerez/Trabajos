@@ -10,7 +10,14 @@ class Tuser < ApplicationRecord
           admin
         end
 
-        def self.admin_creation_params
-          %i[email password password_confirmation admin]
-        end
+        
+
+        has_one_attached :photo
+        has_many :applications, dependent: :destroy
+
+        #def self.admin_creation_params
+         # %i[email password password_confirmation admin]
+        #end
+
+    
 end

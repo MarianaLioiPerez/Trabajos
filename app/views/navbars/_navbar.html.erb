@@ -1,31 +1,37 @@
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
   <div class="container">
-      <%= link_to root_path, class:"navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <span class="work-logo">WORK</span><span class="wave-logo">WAVE</span>
     <% end %>
-    <!--<% if tuser_signed_in? && current_tuser.admin? %> -->
-   <%= link_to "Registro",  new_tuser_registration_path  ,  class: "nav-link" %>
-    <%= link_to "Nueva Oferta", new_job_offer_path, class: "nav-link" %>
-     <!-- <% end %> -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse " id="navbarNavDropdown">
-        <ul class="navbar-nav me-auto">
-        </ul>
+
+    <% if tuser_signed_in? && current_tuser.admin? %> 
+      <%= link_to "Registro", new_tuser_registration_path, class: "nav-link" %>
+      <%= link_to "Nueva Oferta", new_job_offer_path, class: "nav-link" %>
+    <% end %>
+
+    <% if tuser_signed_in? && current_tuser != @tuser %>
+      <li class="nav-item">
+        <%= link_to "Mis Postulaciones", tuser_path(current_tuser), class: "nav-link" %>
+      </li>
+    <% end %>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto">
+      </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           <% if tuser_signed_in? %> Hola <%= current_tuser.email %>
+            <% if tuser_signed_in? %>
+              Hola <%= current_tuser.email %>
             <% else %>
-                      Inicia Sesión
-                      <% end %>
+              Inicia Sesión
+            <% end %>
           </a>
           <ul class="dropdown-menu">
-            <% if tuser_signed_in? %>
-                <li><%= button_to "Cerrar Sesión", destroy_tuser_session_path, class:"dropdown-item", method: :delete %></li>
-            <% else %>
-                <li><%= link_to "Iniciar Sesión", new_tuser_session_path, class:"dropdown-item" %></li>
+            <% if tuser_signed_in?%>
+              <li><%= button_to "Cerrar Sesión", destroy_tuser_session_path, class: "dropdown-item" %></li>
+               <% else %>
+              <li><%= link_to "Iniciar Sesión", new_tuser_session_path, class: "dropdown-item" %></li>
             <% end %>
           </ul>
         </li>

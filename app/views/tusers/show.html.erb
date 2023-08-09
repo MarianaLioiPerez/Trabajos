@@ -1,0 +1,23 @@
+
+<div>
+  <% if @tuser.photo.attached? %>
+    <%= image_tag @tuser.photo %>
+  <% else %>
+    <p>No se ha cargado una foto</p>
+  <% end %>
+</div>
+<div>
+  <p><strong>Nombre:</strong> <%= @tuser.nombre %></p>
+  <p><strong>educación:</strong> <%= @tuser.educación %></p>
+   <p><strong>Experiencia:</strong> <%= @tuser.experiencia %></p>
+   <p><strong>Habilidades:</strong> <%= @tuser.habilidades %></p>
+</div>
+
+
+<% @aplications.each do |application| %>
+  <div>
+    <p><%= application.job_offer.title %></p>
+    <p><%= application.text %></p>
+    <!-- Otros detalles de la aplicación -->
+  </div>
+<% end %>

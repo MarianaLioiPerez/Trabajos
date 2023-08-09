@@ -1,6 +1,14 @@
 class AplicationsController < ApplicationController
   before_action :set_application, only: %i[show edit update destroy]
   before_action :authenticate_tuser!
+  before_action :authorize_admin, only: [:index, :destroy]
+
+  
+  protect_from_forgery
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = exception.message
+    redirect_to root_url
+  end
 
   # GET /aplications or /aplications.json
   def index
@@ -9,11 +17,13 @@ class AplicationsController < ApplicationController
 
   # GET /aplications/1 or /aplications/1.json
   def show
+    @aplications = Aplication.all
   end
 
   # GET /aplications/new
   def new
     @aplication = Aplication.new
+    @aplication.tuser_id = current_tuser.id
   end
 
   # GET /aplications/1/edit
@@ -23,10 +33,13 @@ class AplicationsController < ApplicationController
   # POST /aplications or /aplications.json
   def create
     @aplication = Aplication.new(aplication_params)
+    @aplication.tuser_id = current_tuser.id
 
     respond_to do |format|
       if @aplication.save
-        format.html { redirect_to aplication_url(@aplication), notice: "Aplication was successfully created." }
+        flash[:notice] = "¡Postulación exitosa! Tu aplicación ha sido registrada."
+
+        format.html { redirect_to aplication_url(@aplication)}
         format.json { render :show, status: :created, location: @aplication }
       else
         format.html { render :new, status: :unprocessable_entity }

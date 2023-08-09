@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  
-  devise_for :tusers, controllers: {
-    sessions: 'tusers/sessions'
-  }
+  devise_for :tusers
+  devise_scope :tuser do
+    get '/login' => 'devise/sessions#new'
+    get '/logout' => 'devise/sessions#destroy'
+  end
 
+  resource :tuser, :controller => "tusers"  # Cambio a "resource" en lugar de "resources"
+  
   resources :job_offers do
     resources :applications, only: [:create, :destroy]
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  
   # Defines the root path route ("/")
- root "home#index"
+  root "home#index"
 end

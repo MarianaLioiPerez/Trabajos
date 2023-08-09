@@ -1,0 +1,34 @@
+
+<%= form_with(model: tuser, local: true) do |form| %>
+  
+  <div>
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>
+  </div>
+
+
+<div>
+<p><strong>Nombre:</strong> 
+<%= current_tuser.nombre %></p>
+</div>
+
+<div>
+<p><strong>Educación:</strong> 
+<%= current_tuser.educacion %></p>
+</div>
+
+<div>
+<p><strong>habilidades:</strong> 
+<%= current_tuser.habilidades %></p>
+</div>
+
+
+<div>
+<p><strong>Experiencia:</strong> 
+<%= current_tuser.experiencia %></p>
+</div>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
