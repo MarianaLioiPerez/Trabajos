@@ -1,33 +1,39 @@
-
-<%= form_with(model: tuser, local: true) do |form| %>
-  
+<%= form_with(model: @user, url: users_path, local: true) do |form| %>
   <div>
-    <%= form.label :photo %>
-    <%= form.file_field :photo %>
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
   </div>
 
+  <div>
+    <%= form.label :educacion %>
+    <%= form.text_field :educacion %>
+  </div>
 
-<div>
-<p><strong>Nombre:</strong> 
-<%= current_tuser.nombre %></p>
-</div>
+  <div>
+    <%= form.label :habilidades %>
+    <%= form.text_area :habilidades %>
+  </div>
 
-<div>
-<p><strong>Educación:</strong> 
-<%= current_tuser.educacion %></p>
-</div>
+  <div>
+    <%= form.label :experiencia %>
+    <%= form.text_area :experiencia %>
+  </div>
 
-<div>
-<p><strong>habilidades:</strong> 
-<%= current_tuser.habilidades %></p>
-</div>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
 
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
 
-<div>
-<p><strong>Experiencia:</strong> 
-<%= current_tuser.experiencia %></p>
-</div>
-  
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

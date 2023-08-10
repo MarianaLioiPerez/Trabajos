@@ -11,7 +11,9 @@ class Tuser < ApplicationRecord
         end
 
         
-
+        has_secure_password
+        validates :nombre, presence: true
+        validates :email, presence: true, uniqueness: true
         has_one_attached :photo
         has_many :applications, dependent: :destroy
 

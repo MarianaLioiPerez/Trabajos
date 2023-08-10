@@ -16,7 +16,8 @@ class TusersController < ApplicationController
 
         if @tuser.save
           flash[:notice] = "Usuario creado exitosamente."
-          redirect_to @tuser
+          #redirect_to @tuser
+          redirect_to root_path, notice: 'Usuario registrado exitosamente.'
         else
           flash.now[:alert] = "Hubo un error al crear el usuario."
           render :new
@@ -49,7 +50,7 @@ class TusersController < ApplicationController
       private
 
       def tuser_params
-        params.require(:tuser).permit(:nombre, :experiencia, :educacion, :habilidades, :photo, :other_fields)
+        params.require(:tuser).permit(:nombre, :experiencia, :educacion, :habilidades, :photo, :other_fields, :email, :password, :password_confirmation)
       end
 
       def authorize_admin
