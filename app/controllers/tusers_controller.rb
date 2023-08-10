@@ -1,4 +1,4 @@
-class TuserController < ApplicationController
+class TusersController < ApplicationController
   before_action :set_tuser, only: [:show, :edit, :update]
   before_action :authenticate_tuser!
   before_action :authorize_admin, only: [:new, :create]

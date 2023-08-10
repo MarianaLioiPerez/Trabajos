@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
  
   #resources :tusers, only: [:new, :create, :show, :index, :edit, :update]
-  resources :tuser , :controller => "tuser"
+  resources :tusers , :controller => "tusers"
   
   resources :job_offers do
     resources :applications, only: [:create, :destroy]
