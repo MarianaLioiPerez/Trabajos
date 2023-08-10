@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
   end
-
-  resource :tuser, :controller => "tusers"  # Cambio a "resource" en lugar de "resources"
+ 
+  #resources :tusers, only: [:new, :create, :show, :index, :edit, :update]
+  resources :tuser , :controller => "tuser"
   
   resources :job_offers do
     resources :applications, only: [:create, :destroy]

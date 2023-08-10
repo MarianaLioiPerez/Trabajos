@@ -1,5 +1,5 @@
 class JobOffersController < ApplicationController
-  before_action :set_job_offer, only: %i[ show edit update destroy ]
+  before_action :set_job_offer, only: %i[show edit update destroy]
   before_action :authenticate_tuser!, except: [:index, :show]
   before_action :authorize_admin, only: [:new, :create, :edit, :update, :destroy]
 
@@ -68,5 +68,12 @@ class JobOffersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def job_offer_params
       params.require(:job_offer).permit(:title, :description)
+    end
+
+    def authorize_esteban
+      unless current_tuser && current_tuser.esteban?
+        flash[:alert] = "Acceso denegado. Solo Esteban puede realizar esta acción."
+        redirect_to root_path
+      end
     end
 end

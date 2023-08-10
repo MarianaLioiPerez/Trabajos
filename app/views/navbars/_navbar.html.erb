@@ -5,15 +5,15 @@
     <% end %>
 
     <% if tuser_signed_in? && current_tuser.admin? %> 
-      <%= link_to "Registro", new_tuser_registration_path, class: "nav-link" %>
+      <%= link_to "Registro", new_tuser_path, class: "nav-link" %>
       <%= link_to "Nueva Oferta", new_job_offer_path, class: "nav-link" %>
     <% end %>
 
-    <% if tuser_signed_in? && current_tuser != @tuser %>
+    <!--<% if tuser_signed_in? && current_tuser != @tuser %>
       <li class="nav-item">
         <%= link_to "Mis Postulaciones", tuser_path(current_tuser), class: "nav-link" %>
       </li>
-    <% end %>
+    <% end %> -->
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto">
@@ -29,9 +29,9 @@
           </a>
           <ul class="dropdown-menu">
             <% if tuser_signed_in?%>
-              <li><%= button_to "Cerrar Sesión", destroy_tuser_session_path, class: "dropdown-item" %></li>
+              <li><%= button_to "Cerrar Sesión", destroy_tuser_session_path, method: :delete, class: "dropdown-item" %></li>
                <% else %>
-              <li><%= link_to "Iniciar Sesión", new_tuser_session_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Iniciar Sesión", new_tuser_session_path , class: "dropdown-item" %></li>
             <% end %>
           </ul>
         </li>

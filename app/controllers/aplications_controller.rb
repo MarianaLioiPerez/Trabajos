@@ -4,11 +4,6 @@ class AplicationsController < ApplicationController
   before_action :authorize_admin, only: [:index, :destroy]
 
   
-  protect_from_forgery
-  rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = exception.message
-    redirect_to root_url
-  end
 
   # GET /aplications or /aplications.json
   def index
@@ -37,6 +32,8 @@ class AplicationsController < ApplicationController
 
     respond_to do |format|
       if @aplication.save
+        send_application_notification(@aplication)
+
         flash[:notice] = "¡Postulación exitosa! Tu aplicación ha sido registrada."
 
         format.html { redirect_to aplication_url(@aplication)}
@@ -80,5 +77,13 @@ class AplicationsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def aplication_params
       params.require(:aplication).permit(:text, :job_offer_id, :tuser_id)
+    end
+
+    def send_application_notification(aplication)
+
+      if aplication.save 
+        flash[:notice] = "Nueva Postulación."
+      end
+      # Puedes usar correo electrónico, notificaciones en la aplicación, etc.
     end
 end
