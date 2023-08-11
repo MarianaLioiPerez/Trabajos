@@ -241,6 +241,8 @@ GEM
 
 PLATFORMS
   x86_64-linux
+  x64-mingw-ucrt
+  
 
 DEPENDENCIES
   aws-sdk-s3
